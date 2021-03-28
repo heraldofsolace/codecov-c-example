@@ -1,0 +1,5 @@
+*.gcno
+*.gcda
+*.gcov
+test
+.ccls-cache
