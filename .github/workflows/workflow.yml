@@ -1,0 +1,18 @@
+name: CodeCov
+on: [push, pull_request]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch
+        uses: actions/checkout@master
+      - name: Test
+        run: |
+          gcc -coverage -O0 test.c lib.c -o test
+          ./test
+          gcov -abcfu lib.c
+          cat lib.c.gcov
+      - name: Upload
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./lib.c.gcov
