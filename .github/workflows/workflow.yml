@@ -11,7 +11,6 @@ jobs:
           gcc -coverage -O0 test.c lib.c -o test
           ./test
           gcov -abcfu lib.c
-          cat lib.c.gcov
       - name: Upload
         uses: codecov/codecov-action@v1
         with:
